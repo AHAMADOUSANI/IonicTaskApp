@@ -1,0 +1,128 @@
+// .bg-img {
+//     padding: 1px;
+//     height: 100%;
+//     width: 100%;
+     
+//      background-image: url("../../../assets/tasks.jpg");
+    
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     background-color:white;
+// }
+.container{
+   
+    height: 100vh;
+    padding: 20px;
+    background-color: #8b92a1;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+  }
+ion-content{
+    background-color: #303133;
+    width: auto;
+}
+ion-card {
+    margin-bottom: 0px;
+    margin-top: 10px;
+    margin-left: 500px;
+    width: 500px;
+    height: 120px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    
+}
+h1 {
+    color: white;
+    margin-left: 20px;
+    font-size: 30px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+h5 {
+    color: #e8e8e8;
+    margin-left: 20px;
+    margin-top: -7px;
+    font-size: medium;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.add-button {
+    --background: #1e52bb;
+    // position: absolute;
+    bottom: 5px;
+    width: 2%;
+    height: 5px;
+    --color: #ffffff;
+    margin-left: 50%;
+    
+}
+ion-label h2{
+    color: rgb(20, 19, 19);
+    font-family: 'Times New Roman', Times, serif;
+}
+.tasks-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    
+}
+ion-icon{
+    font-size: x-large;
+}
+.align-parag{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+   justify-content: space-between;
+    
+}
+.item-color{
+    background-color: #e8e8e8;
+}
+
+.align-parag small{
+    color: white;
+    border: 2px solid black;
+    background-color: blue;
+    width: 15%;
+    height: 15px;
+    text-align: center;
+    border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+
+}
+.item-delete{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.nom-color h1{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    font-size: small;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 4px;
+    margin-left: auto;
+}
+.butons-align{
+    text-align: center;
+    margin-left: 2px;
+    padding-left: 2px;
+    margin-right: 3px;
+    padding-right: 3px;
+    
+}
+.butons-align ion-button{
+    margin-left: 5px;
+}
+

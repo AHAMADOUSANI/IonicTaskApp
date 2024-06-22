@@ -1,0 +1,100 @@
+
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>
+        Task Management
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="getTasks()">
+          <ion-icon name="refresh" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button type="submit" (click)="authService.SignOut()" expand="block"><ion-icon name="log-out"></ion-icon>Logout</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content >
+    <div class="container">
+    <div class="bg-img">
+  
+      <h1 ><b>Aujourd'hui</b></h1>
+      <h5>{{ currentDate }}</h5>
+      <div  class="butons-align">
+      
+        <ion-button routerLink="/all-tasks">All Tasks</ion-button>
+        <ion-button routerLink="/in-progress-tasks">In Progress</ion-button>
+        <ion-button routerLink="/completed-tasks">Completed</ion-button>
+      
+      </div>
+  
+      <ion-card *ngFor="let task of tasks">
+       
+            <ion-checkbox (ionChange)="changeCheckState(task)"  [(ngModel)]="task.checked" slot="start"></ion-checkbox>
+            <ion-label>
+              <div class="tasks-name">
+              <h2 *ngIf="!task.checked">{{ task.text }}</h2>
+              
+              <h2 *ngIf="task.checked" style="text-decoration:line-through;">{{ task.text }}</h2>
+              <ion-icon name="medkit"></ion-icon>
+              </div>
+              <div class="nom-color">
+              <h1 *ngIf="!task.checked">{{task.nom}}</h1>
+              <h1 *ngIf="task.checked" style="text-decoration:line-through;" >{{task.nom}}</h1>
+              </div>
+              <div class="align-parag">
+                <p> <ion-icon name="alarm"></ion-icon>  {{ task.hour }}</p>
+                <small *ngIf="!task.checked" color="danger">{{task.status}}</small>
+                <small *ngIf="task.checked"  color="danger">{{task.status}}</small>
+    
+              </div>
+              
+            </ion-label>
+            <div class="item-delete">
+              <p color="danger" (click)="deleteTask(task)">
+                <ion-icon name="trash" slot="icon-only" color="danger"></ion-icon>
+              </p>
+            </div>
+           
+        
+        
+      </ion-card>
+  
+      <ion-card *ngIf="addTask">
+        <ion-item lines="none" class="item-color">
+          <ion-input [(ngModel)]="myTask" placeholder="Entrer une tâche"></ion-input><br>
+          <ion-input [(ngModel)]="taskStatus" placeholder="entrer le status de la tache"></ion-input>
+          <ion-input [(ngModel)]="name" placeholder="entrer le nom"></ion-input>
+          <ion-button (click)="addTaskToFirebase()" shape="round" slot="end">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-card>
+  
+      <ion-button *ngIf="!addTask" (click)="showForm()" expand="block" class="add-button">
+        <ion-icon name="add" slot="start"></ion-icon>
+        
+      </ion-button>
+  
+      <ion-button *ngIf="addTask"  (click)="showForm()" expand="block" class="add-button">
+        <ion-icon name="close" slot="start"></ion-icon>
+        Annuler
+      </ion-button>
+    </div>
+    </div>
+  </ion-content>
+  
+   <!-- src/app/app.component.html
+ <ion-header>
+  <ion-toolbar>
+    <ion-title>Task Manager</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-buttons>
+    <ion-button routerLink="/all-tasks">All Tasks</ion-button>
+    <ion-button routerLink="/in-progress-tasks">In Progress</ion-button>
+    <ion-button routerLink="/completed-tasks">Completed</ion-button>
+  </ion-buttons>
+  
+</ion-content> -->

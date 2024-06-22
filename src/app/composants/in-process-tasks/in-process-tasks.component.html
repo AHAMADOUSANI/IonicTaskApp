@@ -1,0 +1,26 @@
+<!-- src/app/components/in-progress-tasks/in-progress-tasks.component.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>In Progress Tasks</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openTaskForm()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let task of tasks">
+      <ion-label>
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.description }}</p>
+        <p>{{ task.dueDate }}</p>
+        <p>Priority: {{ task.priority }}</p>
+      </ion-label>
+      <ion-button (click)="completeTask(task)">Complete</ion-button>
+      <ion-button (click)="deleteTask(task)">Delete</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

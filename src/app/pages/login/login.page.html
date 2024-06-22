@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>CONNEXION</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form>
+          
+            
+            <ion-input type="email" value="example@gmail.com" #email></ion-input> 
+            <ion-input type="password" value="password" #password></ion-input>
+          <ion-button expand="block" class="sign-up-btn" (click)="logIn(email, password)">Sign up</ion-button>
+          <ion-text class="or-text">or continue with</ion-text>
+          <ion-button expand="block" class="google-btn" (click)="authService.GoogleAuth()">
+            <ion-icon name="logo-google" slot="start"></ion-icon>
+            Google
+          </ion-button>
+          <ion-text class="terms-text">
+            By clicking continue, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+          </ion-text>
+          <p>
+          <a href="" routerLink="/register" class="lien" slot="end">s'inscrire ici</a>
+          </p>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
