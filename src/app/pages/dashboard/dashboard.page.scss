@@ -25,8 +25,8 @@ ion-card {
     margin-bottom: 0px;
     margin-top: 10px;
     margin-left: 500px;
-    width: 500px;
-    height: 120px;
+    width: 600px;
+    height: 150px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -120,9 +120,36 @@ ion-icon{
     padding-left: 2px;
     margin-right: 3px;
     padding-right: 3px;
+    color: #000;
     
 }
-.butons-align ion-button{
+.butons-align a{
     margin-left: 5px;
+    color: #000;
 }
+.status-badges{
+    text-align: center;
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+ion-badge{
+    width: 10%;
+    height: 100px;
+    margin-left: 6px;
+    text-align: center;
+    padding-top: 36px;
+    
+}
+.task-alignement{
+    display: flex;
+    text-align: center;
+    padding-left: 25px;
+    
+}
+.doto-task{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0%;
+    padding-left: 0%;
 
+}

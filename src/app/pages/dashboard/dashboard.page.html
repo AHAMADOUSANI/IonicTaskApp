@@ -19,12 +19,47 @@
   
       <h1 ><b>Aujourd'hui</b></h1>
       <h5>{{ currentDate }}</h5>
+      <div *ngIf="reminders.length > 0">
+        <h3>Reminders:</h3>
+        <ul>
+          <li *ngFor="let reminder of reminders">
+            {{ reminder.message }} ({{ reminder.date | date:'short' }})
+          </li>
+        </ul>
+      </div>
       <div  class="butons-align">
       
-        <ion-button routerLink="/all-tasks">All Tasks</ion-button>
-        <ion-button routerLink="/in-progress-tasks">In Progress</ion-button>
-        <ion-button routerLink="/completed-tasks">Completed</ion-button>
+        <a href="" routerLink="/all-tasks">All Tasks</a>
+        <a href="" routerLink="/in-progress-tasks">In Progress</a>
+        <a href="" routerLink="/completed-tasks">Completed</a>
       
+      </div>
+      <div class="status-badges">
+        <ion-badge color="primary">
+          <div class="task-alignement">
+          <ion-icon name="medkit-outline"></ion-icon>
+          <div class="doto-task">
+         <p>To Do</p> 
+
+         <h6>{{ toDoCount }} Task(s) </h6>  
+        </div>
+        </div></ion-badge>
+        
+        <ion-badge color="secondary">
+          <div class="task-alignement">
+            <ion-icon name="create-outline"></ion-icon>
+            <div class="doto-task"> 
+         <p> In Process</p>
+          <h6> {{ inProcessCount }} Task(s)</h6>
+            </div></div></ion-badge>
+        <ion-badge color="success">
+          <div class="task-alignement">
+            <ion-icon name="checkmark-done-circle-outline"></ion-icon>
+            <div class="doto-task"> 
+         <p> Completed</p>
+         <h6>{{ completedCount }} Task(s)</h6>  
+            </div></div>
+        </ion-badge>
       </div>
   
       <ion-card *ngFor="let task of tasks">
@@ -32,7 +67,7 @@
             <ion-checkbox (ionChange)="changeCheckState(task)"  [(ngModel)]="task.checked" slot="start"></ion-checkbox>
             <ion-label>
               <div class="tasks-name">
-              <h2 *ngIf="!task.checked">{{ task.text }}</h2>
+              <h2 *ngIf="!task.checked">{{ task.text }}  </h2>
               
               <h2 *ngIf="task.checked" style="text-decoration:line-through;">{{ task.text }}</h2>
               <ion-icon name="medkit"></ion-icon>
@@ -43,10 +78,18 @@
               </div>
               <div class="align-parag">
                 <p> <ion-icon name="alarm"></ion-icon>  {{ task.hour }}</p>
+                <p *ngIf="!task.checked" >Start Date: {{ task.startDate }}</p>
+                <p *ngIf="task.checked" style="text-decoration:line-through;">Start Date: {{ task.startDate }}</p>
+                <p *ngIf="!task.checked" >End Date: {{ task.endDate }}</p>
+    <p *ngIf="task.checked" style="text-decoration:line-through;">End Date: {{ task.endDate }}</p>
+    
+   
                 <small *ngIf="!task.checked" color="danger">{{task.status}}</small>
                 <small *ngIf="task.checked"  color="danger">{{task.status}}</small>
     
               </div>
+             
+             
               
             </ion-label>
             <div class="item-delete">
@@ -61,9 +104,17 @@
   
       <ion-card *ngIf="addTask">
         <ion-item lines="none" class="item-color">
+          
           <ion-input [(ngModel)]="myTask" placeholder="Entrer une tâche"></ion-input><br>
-          <ion-input [(ngModel)]="taskStatus" placeholder="entrer le status de la tache"></ion-input>
+          <input [(ngModel)]="startDate" placeholder="Start Date" type="date" />
+          <input [(ngModel)]="endDate" placeholder="End Date" type="date" />
+          <ion-select [(ngModel)]="taskStatus">
+            <ion-select-option value="to do">To Do</ion-select-option>
+            <ion-select-option value="in process">In Process</ion-select-option>
+            <ion-select-option value="completed">Completed</ion-select-option>
+          </ion-select>
           <ion-input [(ngModel)]="name" placeholder="entrer le nom"></ion-input>
+
           <ion-button (click)="addTaskToFirebase()" shape="round" slot="end">
             <ion-icon slot="icon-only" name="add"></ion-icon>
           </ion-button>
