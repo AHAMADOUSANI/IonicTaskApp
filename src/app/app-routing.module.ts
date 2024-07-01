@@ -37,6 +37,18 @@ const routes: Routes = [
   { path: 'all-tasks', component: AllTasksComponent },
   { path: 'in-progress-tasks', component: InProcessTasksComponent},
   { path: 'completed-tasks', component: CompletedTasksComponent },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'event',
+    loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
+  },
+  
+  
+ 
+ 
   
 ];
 

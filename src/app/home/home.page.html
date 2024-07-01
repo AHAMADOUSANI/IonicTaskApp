@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <calendar *ngIf="showAddEvent" id="myCal"
+  [locale]="calendar.locale"
+  [eventSource]="allEvents" 
+  [calendarMode]="calendar.mode" 
+  [currentDate]="calendar.currentDate"
+  (onTitleChanged)="onViewTitleChanged($event)"
+  (onTimeSelected)="onTimeSelected($event)" 
+  (onEventSelected)="onEventSelected($event)"
+  startHour="6"
+  endHour="20"
+  step="30"
+  startingDayWeek="1">
+</calendar>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="showHideForm()">
+    <ion-icon *ngIf="!showAddEvent" name="add"></ion-icon>
+    <ion-icon *ngIf="showAddEvent" name="close"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<div *ngIf="showAddEvent" class="ion-padding">
+  <ion-item>
+    <ion-label><b>Titre:</b></ion-label>
+    <ion-input type="text" placeholder="Titre" [(ngModel)]="newEvent.title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label><b>Description:</b></ion-label>
+    <ion-input type="text" placeholder="Description" [(ngModel)]="newEvent.description"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label><b>Image:</b></ion-label>
+    <ion-input type="text" placeholder="URL de l'image" [(ngModel)]="newEvent.imageURL"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label><b>Début</b></ion-label>
+    <ion-datetime doneText="OK" cancelText="Annuler" i18n displayFormat="DD/MM/YYYY HH:mm" pickerFormat="MMM D HH:mm" [(ngModel)]="newEvent.startTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label><b>Fin</b></ion-label>
+    <ion-datetime doneText="OK" cancelText="Annuler" displayFormat="DD/MM/YYYY HH:mm" pickerFormat="MMM D HH:mm" [(ngModel)]="newEvent.endTime" [min]="minDate"></ion-datetime>
+  </ion-item>
+  <ion-button color="warning" expand="block" (click)="addEvent()">Ajouter</ion-button>
+</div>
+</ion-content>

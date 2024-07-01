@@ -17,6 +17,13 @@ import { AllTasksComponent } from './composants/all-tasks/all-tasks.component';
 import { InProcessTasksComponent } from './composants/in-process-tasks/in-process-tasks.component';
 import { CompletedTasksComponent } from './composants/completed-tasks/completed-tasks.component';
 import { TaskFormComponent } from './composants/task-form/task-form.component';
+// import { ErrorHandler } from '@angular/core';
+// import {  IonicErrorHandler } from 'ionic/angular';
+// import { SplashScreen } from '@ionic-native/splash-screen';
+// import { StatusBar } from '@ionic-native/status-bar';
+// import {NgCalendarModule} from 'ionic2-calendar';
+
+
 
 @NgModule({
   declarations: [AppComponent, AllTasksComponent,InProcessTasksComponent, CompletedTasksComponent, TaskFormComponent],
@@ -28,10 +35,22 @@ import { TaskFormComponent } from './composants/task-form/task-form.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     FormsModule,
-    IonicModule
+    IonicModule,
+    
+    
+    
+    
+    
     
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    
+  
+   
+
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
