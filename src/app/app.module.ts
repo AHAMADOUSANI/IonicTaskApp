@@ -17,6 +17,7 @@ import { AllTasksComponent } from './composants/all-tasks/all-tasks.component';
 import { InProcessTasksComponent } from './composants/in-process-tasks/in-process-tasks.component';
 import { CompletedTasksComponent } from './composants/completed-tasks/completed-tasks.component';
 import { TaskFormComponent } from './composants/task-form/task-form.component';
+import { EventPageModule } from './event/event.module';
 // import { ErrorHandler } from '@angular/core';
 // import {  IonicErrorHandler } from 'ionic/angular';
 // import { SplashScreen } from '@ionic-native/splash-screen';
@@ -36,6 +37,7 @@ import { TaskFormComponent } from './composants/task-form/task-form.component';
     AngularFireDatabaseModule,
     FormsModule,
     IonicModule,
+    EventPageModule
     
     
     

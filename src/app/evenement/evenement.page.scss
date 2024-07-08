@@ -1,0 +1,19 @@
+ion-calendar {
+    width: 100%;
+    height: 300px;
+  }
+  
+  ion-calendar .calendar-header {
+    background-color: #f0f0f0;
+  }
+  
+  ion-calendar .calendar-day {
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }
+  
+  ion-calendar .calendar-event {
+    background-color: #007bff;
+    color: #fff;
+  }
+  

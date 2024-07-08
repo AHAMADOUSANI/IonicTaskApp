@@ -1,4 +1,4 @@
-import { Component, viewChild } from '@angular/core';
+import { Component,ViewChild} from '@angular/core';
 import { CalendarComponent } from 'ionic2-calendar';
 
 import { AngularFireDatabase } from '@angular/fire/compat/database';
@@ -24,8 +24,9 @@ export class HomePage  {
   showAddEvent!: boolean;
   minDate = new Date().toISOString();
   allEvents: Event[] = [];
-  myCal:any;
   
+  @ViewChild(CalendarComponent,  { static: false }) myCal!:CalendarComponent;
+
   newEvent = {
     title: '',
     description: '',
